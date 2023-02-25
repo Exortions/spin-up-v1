@@ -13,6 +13,5 @@ class Catapult {
         void reset();
         void cycle();
         bool isCatapultReady();
-        void setMotor(pros::Motor motor);
         pros::Motor getMotor();
 };

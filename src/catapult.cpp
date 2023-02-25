@@ -47,3 +47,7 @@ void Catapult::cycle() {
         this->reset();
     }};
 }
+
+pros::Motor Catapult::getMotor() {
+    return this->motor;
+}
