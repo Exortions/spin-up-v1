@@ -1,6 +1,8 @@
 #include "autoSelect/selection.h"
+#include "lemlib/pose.hpp"
 #include "macros.hpp"
 #include "main.h"
+#include "pros/rtos.hpp"
 
 enum AutonomousMode {
     RED_ROLLER,
@@ -10,6 +12,19 @@ enum AutonomousMode {
     SKILLS,
     NONE
 };
+
+inline void screen() {
+    pros::lcd::initialize();
+
+    while (true) {
+        lemlib::Pose pose = chassis.getPose();
+        pros::lcd::print(0, "x: %f", pose.x);
+        pros::lcd::print(1, "y: %f", pose.y);
+        pros::lcd::print(2, "theta: %f", pose.theta);
+
+        pros::delay(10);
+    }
+}
 
 inline void initialize_autonomous() {
     if (inertial_sensor.is_calibrating()) {
@@ -69,4 +84,6 @@ inline void autonomous() {
     AutonomousMode mode = get_autonomous_mode(selector::auton);
 
     get_autonomous_callback(mode)();
+    
+    pros::Task screen_task(screen);
 }
