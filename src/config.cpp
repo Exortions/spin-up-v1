@@ -1,5 +1,4 @@
 #include "main.h"
-#include "pros/misc.hpp"
 
 pros::Motor left_front_motor(left_front_motor_port, pros::E_MOTOR_GEARSET_18, false);
 pros::Motor left_middle_motor(left_middle_motor_port, pros::E_MOTOR_GEARSET_18, false);
@@ -86,7 +85,7 @@ std::shared_ptr<okapi::ChassisController> chassis_controller = okapi::ChassisCon
     ).withDimensions(
         {AbstractMotor::gearset::green, // 200 rpm motor cartridge
         (36.0 / 60.0)}, // gear ratio (36:60)
-        {{3.25_in, 10_in}, imev5GreenTPR} // wheel diameter, track width
+        {{wheel_diameter * okapi::inch, track_width * okapi::inch}, imev5GreenTPR} // wheel diameter, track width
     ).build();
 
 okapi::ControllerButton intake_in_button(okapi::ControllerDigital::L2);
