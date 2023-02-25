@@ -1,4 +1,3 @@
-#include "pros/adi.hpp"
 #include "globals.hpp"
 #include "api.h"
 

@@ -2,7 +2,6 @@
 #include "lemlib/pose.hpp"
 #include "macros.hpp"
 #include "main.h"
-#include "pros/rtos.hpp"
 
 enum AutonomousMode {
     RED_ROLLER,

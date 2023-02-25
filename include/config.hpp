@@ -2,7 +2,6 @@
 #include "okapi/api.hpp"
 #include "catapult.hpp"
 #include "api.h"
-#include "okapi/impl/device/button/controllerButton.hpp"
 
 extern std::shared_ptr<okapi::ChassisController> chassis_controller;
 extern lemlib::Chassis chassis;
